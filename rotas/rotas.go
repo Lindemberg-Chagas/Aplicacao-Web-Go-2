@@ -7,4 +7,5 @@ import (
 
 func CarregaRotas() {
 	http.HandleFunc("/", controle.Index)
+	http.HandleFunc("/new", controle.New)
 }
