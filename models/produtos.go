@@ -1,6 +1,8 @@
 package models
 
-import "models/aplicacao/db"
+import (
+	"models/aplicacao/db"
+)
 
 type Produto struct {
 	Id              int
@@ -35,6 +37,18 @@ func BuscarTodosOsProdutos() []Produto {
 
 		produtos = append(produtos, p)
 	}
+
 	defer db.Close()
 	return produtos
+}
+func CriaNovoProduto(nome string, descricao string, preco float64, quantidade int) {
+	db := db.ConectaBancoDeDados()
+
+	insereNoBanco, err := db.Prepare("insert into produtos (nome, descricao, preco, quantidade) values ($1, $2, $3, $4)")
+	if err != nil {
+		panic(err.Error())
+	}
+	insereNoBanco.Exec(nome, descricao, preco, quantidade)
+	defer db.Close()
+
 }
