@@ -50,6 +50,7 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "Edit", produto)
 
 }
+<<<<<<< HEAD
 func Update(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		id := r.FormValue("id")
@@ -75,3 +76,5 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 301)
 
 }
+=======
+>>>>>>> 8c9ba8837fbfff19f07a9c2442fc1d07564aa00b

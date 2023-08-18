@@ -79,7 +79,10 @@ func EditaProduto(id string) Produto {
 		if err != nil {
 			panic(err.Error())
 		}
+<<<<<<< HEAD
 		produtoParaAtualizar.Id = id
+=======
+>>>>>>> 8c9ba8837fbfff19f07a9c2442fc1d07564aa00b
 		produtoParaAtualizar.Nome = nome
 		produtoParaAtualizar.Descricao = descricao
 		produtoParaAtualizar.Preco = preco
@@ -89,6 +92,7 @@ func EditaProduto(id string) Produto {
 	defer db.Close()
 	return produtoParaAtualizar
 }
+<<<<<<< HEAD
 func AtualizaProduto(id int, nome string, descricao string, preco float64, quantidade int) {
 	db := db.ConectaBancoDeDados()
 	AtualizaProduto, err := db.Prepare("update produtos set nome=$1, descricao=$2, preco=$3, quantidade=$4 where id=$5")
@@ -98,3 +102,5 @@ func AtualizaProduto(id int, nome string, descricao string, preco float64, quant
 	AtualizaProduto.Exec(nome, descricao, preco, quantidade, id)
 	defer db.Close()
 }
+=======
+>>>>>>> 8c9ba8837fbfff19f07a9c2442fc1d07564aa00b
